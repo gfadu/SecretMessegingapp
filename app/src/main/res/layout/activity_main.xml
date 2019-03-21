@@ -21,7 +21,7 @@
     <Button
         android:id="@+id/welcome"
         android:layout_width="171dp"
-        android:layout_height="112dp"
+        android:layout_height="71dp"
         android:layout_marginTop="50dp"
         android:onClick="welcome"
         android:text="Welcome!"
@@ -30,7 +30,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.455" />
+        app:layout_constraintVertical_bias="0.506" />
 
     <TextView
         android:id="@+id/description"
@@ -51,11 +51,14 @@
         android:id="@+id/encode"
         android:layout_width="119dp"
         android:layout_height="57dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="252dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="372dp"
+        android:layout_marginEnd="30dp"
         android:onClick="encode"
         android:text="encode"
         android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/decode"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -63,8 +66,8 @@
         android:id="@+id/decode"
         android:layout_width="117dp"
         android:layout_height="57dp"
-        android:layout_marginTop="252dp"
-        android:layout_marginEnd="72dp"
+        android:layout_marginTop="372dp"
+        android:layout_marginEnd="68dp"
         android:onClick="decode"
         android:text="decode"
         android:visibility="invisible"

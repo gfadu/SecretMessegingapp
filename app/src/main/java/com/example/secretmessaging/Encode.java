@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class Encode extends AppCompatActivity {
 
@@ -24,7 +23,6 @@ public class Encode extends AppCompatActivity {
     }
 
     void encrypt() {
-        input();
         byte[] bytes = this.text.getBytes();
         StringBuilder binary = new StringBuilder();
         for (byte b : bytes) {
@@ -37,22 +35,24 @@ public class Encode extends AppCompatActivity {
         }
         //System.out.println("'" + text+ "' to binary: " + binary);
         bin = binary.toString();
+        addpunc();
     }
 
     void input() {  
-        print = findViewById(R.id.print);
-        Button button=findViewById(R.id.button);
-        message = findViewById(R.id.message);
-        inputpassword = findViewById(R.id.inputpassword);
-        button = (Button) findViewById(R.id.button);
+        //print = findViewById(R.id.print);
+       // Button =findViewById(R.id.button);
+        EditText message = (EditText)findViewById(R.id.inputMessage);
+        EditText inputpassword = (EditText) findViewById(R.id.inputPassword);
+        //button = (Button) findViewById(R.id.button);
         text = message.getText().toString();
         password = inputpassword.getText().toString();
         text = text + password;
+        Log.i("text:",text);
+        encrypt();
     }
 
 
     void addpunc() {
-        encrypt();
         char array[] = new char[bin.length()];
         for (int i = 0; i < bin.length(); i++) {
             array[i] = bin.charAt(i);
@@ -69,14 +69,15 @@ public class Encode extends AppCompatActivity {
                 }
             }
         }
-        for (int i = 0; i < array.length; i++) {
-            print.setText(array[i]);
-        }
+        String string=new String(array);
+        Log.i("encoded",string);
+        EditText textView=(EditText) findViewById(R.id.displayMessage);
+        textView.setText(string);
 
     }
-    void save(View view){
+    public void save(View view){
 
-        addpunc();
+        input();
     }
 }
 
