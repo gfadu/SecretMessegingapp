@@ -22,7 +22,7 @@ public class Encode extends AppCompatActivity {
         setContentView(R.layout.activity_encode);
     }
 
-    void encrypt() {
+    public void encrypt() {
         byte[] bytes = this.text.getBytes();
         StringBuilder binary = new StringBuilder();
         for (byte b : bytes) {
@@ -38,7 +38,7 @@ public class Encode extends AppCompatActivity {
         addpunc();
     }
 
-    void input() {  
+    public void input() {
         //print = findViewById(R.id.print);
        // Button =findViewById(R.id.button);
         EditText message = (EditText)findViewById(R.id.inputMessage);
@@ -52,7 +52,7 @@ public class Encode extends AppCompatActivity {
     }
 
 
-    void addpunc() {
+    public void addpunc() {
         char array[] = new char[bin.length()];
         for (int i = 0; i < bin.length(); i++) {
             array[i] = bin.charAt(i);
@@ -72,6 +72,7 @@ public class Encode extends AppCompatActivity {
         String string=new String(array);
         Log.i("encoded",string);
         EditText textView=(EditText) findViewById(R.id.displayMessage);
+        textView.setAlpha(1);
         textView.setText(string);
 
     }
