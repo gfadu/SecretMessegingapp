@@ -1,5 +1,7 @@
 package com.example.secretmessaging;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Encode extends AppCompatActivity {
 
@@ -15,6 +18,9 @@ public class Encode extends AppCompatActivity {
     TextView print;
     String text, password, bin;
     Button button;
+    private ClipboardManager myClipboard;
+    private ClipData myClip;
+    EditText textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,15 +45,12 @@ public class Encode extends AppCompatActivity {
     }
 
     public void input() {
-        //print = findViewById(R.id.print);
-       // Button =findViewById(R.id.button);
-        EditText message = (EditText)findViewById(R.id.inputMessage);
-        EditText inputpassword = (EditText) findViewById(R.id.inputPassword);
-        //button = (Button) findViewById(R.id.button);
+        message = (EditText) findViewById(R.id.inputMessage);
+        inputpassword = (EditText) findViewById(R.id.inputPassword);
         text = message.getText().toString();
         password = inputpassword.getText().toString();
         text = text + password;
-        Log.i("text:",text);
+        Log.i("text:", text);
         encrypt();
     }
 
@@ -69,16 +72,43 @@ public class Encode extends AppCompatActivity {
                 }
             }
         }
-        String string=new String(array);
-        Log.i("encoded",string);
-        EditText textView=(EditText) findViewById(R.id.displayMessage);
+        String string = new String(array);
+        Log.i("encoded", string);
+        textView = (EditText) findViewById(R.id.displayMessage);
         textView.setAlpha(1);
         textView.setText(string);
-
     }
-    public void save(View view){
+
+    public void save(View view) {
 
         input();
+    }
+
+    void copy(View view) {
+            setcopy();
+
+    }
+    void setcopy()
+    {
+        button = (Button) findViewById(R.id.copy);
+        myClipboard = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
+
+        button.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+
+
+                String text = textView.getText().toString();
+                myClip = ClipData.newPlainText("text", text);
+                myClipboard.setPrimaryClip(myClip);
+                Toast.makeText(getApplicationContext(), "Text Copied",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 }
 
