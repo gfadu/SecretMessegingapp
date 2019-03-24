@@ -8,7 +8,6 @@
     tools:context=".Decode">
 
 
-
     <TextView
         android:id="@+id/decodeMessage"
         android:layout_width="354dp"
@@ -17,8 +16,8 @@
         android:layout_marginTop="76dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/custom_button"
-        android:padding="15dp"
         android:fontFamily="monospace"
+        android:padding="15dp"
         android:text="Decode your messege"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryDark"
@@ -33,17 +32,15 @@
         android:id="@+id/inputMessage"
         android:layout_width="338dp"
         android:layout_height="58dp"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="36dp"
         android:layout_marginTop="216dp"
-        android:layout_marginEnd="28dp"
+        android:layout_marginEnd="37dp"
         android:ems="10"
-        tools:background="#11000000"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:backgroundTint="@android:color/background_light"
+        tools:background="#11000000"
         tools:hint="Enter your message!" />
 
     <EditText
@@ -66,16 +63,13 @@
         android:id="@+id/button2"
         android:layout_width="125dp"
         android:layout_height="56dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="60dp"
-        android:layout_marginEnd="28dp"
-        android:onClick="Decode"
-
-        android:text="Decode"
+        android:layout_marginEnd="36dp"
         android:background="@drawable/custom_button"
+        android:onClick="Decode"
+        android:text="Decode"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.964"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputMessage" />
 
     <EditText
@@ -106,7 +100,7 @@
         android:textStyle="bold"
         android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.245"
+        app:layout_constraintHorizontal_bias="0.311"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -114,16 +108,16 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="284dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="292dp"
+        android:layout_marginEnd="76dp"
         android:fontFamily="serif-monospace"
         android:text="Enter the password:"
         android:textSize="24sp"
         android:textStyle="bold"
         android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.245"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    
 </android.support.constraint.ConstraintLayout>
