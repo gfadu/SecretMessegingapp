@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         welcome1.setVisibility(View.INVISIBLE);
         encode.setVisibility(View.VISIBLE);
         decode.setVisibility(View.VISIBLE);
+        encode.animate().alpha(1).setDuration(500);
+        decode.animate().alpha(1).setDuration(500);
         description.setVisibility(View.VISIBLE);
     }
     public void encode(View view) {
