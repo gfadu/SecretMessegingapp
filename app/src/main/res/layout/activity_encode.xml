@@ -53,6 +53,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:background="#11000000"
         tools:hint="Enter your message!" />
+
     <EditText
         android:id="@+id/inputPassword"
         android:layout_width="128dp"

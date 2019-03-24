@@ -81,7 +81,21 @@ public class Encode extends AppCompatActivity {
 
     public void save(View view) {
 
-        input();
+        message = (EditText) findViewById(R.id.inputMessage);
+        inputpassword = (EditText) findViewById(R.id.inputPassword);
+        if (message.toString().equals(""))
+        {
+            Toast.makeText(this,"Enter a message",Toast.LENGTH_SHORT).show();
+        }
+        else if (inputpassword.toString().equals(""))
+        {
+            Toast.makeText(this,"Enter a password",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Log.i("Entered message",message.getText().toString());
+            Log.i("Entered message",inputpassword.getText().toString());
+            input();
+        }
     }
 
 
