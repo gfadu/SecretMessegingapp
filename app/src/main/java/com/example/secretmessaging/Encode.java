@@ -2,10 +2,12 @@ package com.example.secretmessaging;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -96,6 +98,8 @@ public class Encode extends AppCompatActivity {
             Log.i("Entered message",inputpassword.getText().toString());
             input();
         }
+        InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        mgr.hideSoftInputFromWindow(textView.getWindowToken(),0);
     }
 
 

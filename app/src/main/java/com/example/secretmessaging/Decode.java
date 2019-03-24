@@ -1,9 +1,11 @@
 package com.example.secretmessaging;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -14,6 +16,7 @@ public class Decode extends AppCompatActivity {
     String text;
     static String password;
     String bin;
+    EditText displaymessage;
 
 
     @Override
@@ -30,6 +33,7 @@ public class Decode extends AppCompatActivity {
         //text=sc.nextLine();
        // System.out.println("Enter the password:");
        // password=sc.nextLine();
+        displaymessage = (EditText)findViewById(R.id.displayMessage);
         EditText messege=(EditText)findViewById(R.id.inputMessage);
         EditText Password=(EditText)findViewById(R.id.inputPassword);
         text=messege.getText().toString();
@@ -99,10 +103,14 @@ public class Decode extends AppCompatActivity {
             Toast.makeText(this,"Access denied",Toast.LENGTH_LONG ).show();
             Log.i("access","denied");
         }
+
     }
 
     public void Decode(View view)
     {
+
         input();
+        InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        mgr.hideSoftInputFromWindow(displaymessage.getWindowToken(),0);
     }
 }
