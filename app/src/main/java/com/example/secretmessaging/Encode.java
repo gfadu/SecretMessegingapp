@@ -84,11 +84,8 @@ public class Encode extends AppCompatActivity {
         input();
     }
 
-    void copy(View view) {
-            setcopy();
 
-    }
-    void setcopy()
+    void copy(View view)
     {
         button = (Button) findViewById(R.id.copy);
         myClipboard = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
@@ -100,12 +97,16 @@ public class Encode extends AppCompatActivity {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
 
-
-                String text = textView.getText().toString();
-                myClip = ClipData.newPlainText("text", text);
-                myClipboard.setPrimaryClip(myClip);
-                Toast.makeText(getApplicationContext(), "Text Copied",
-                        Toast.LENGTH_SHORT).show();
+                try {
+                    String text = textView.getText().toString();
+                    myClip = ClipData.newPlainText("text", text);
+                    myClipboard.setPrimaryClip(myClip);
+                    Toast.makeText(getApplicationContext(), "Text Copied",
+                            Toast.LENGTH_SHORT).show();
+                }
+                catch (Exception e){
+                    Toast.makeText(getApplicationContext(),"Enter a valid message",Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

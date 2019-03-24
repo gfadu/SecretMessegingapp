@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient"
     tools:context=".Encode">
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/imageView3"
         android:layout_width="665dp"
         android:layout_height="0dp"
@@ -15,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/backgroung1" />
+        app:srcCompat="@drawable/backgroung1" />-->
 
     <TextView
         android:id="@+id/encode"
@@ -24,12 +25,13 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="76dp"
         android:layout_marginEnd="8dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/custom_button"
         android:fontFamily="monospace"
+        android:padding="15dp"
         android:text="Encode your message"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
@@ -49,9 +51,8 @@
         app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:backgroundTint="@android:color/background_light"
+        tools:background="#11000000"
         tools:hint="Enter your message!" />
-
     <EditText
         android:id="@+id/inputPassword"
         android:layout_width="128dp"
@@ -59,6 +60,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="8dp"
+        android:background="#11000000"
         android:ems="10"
         android:inputType="numberPassword"
         app:layout_constraintEnd_toStartOf="@+id/button2"
@@ -67,6 +69,8 @@
         app:layout_constraintTop_toBottomOf="@+id/inputMessage"
         tools:hint="Enter password." />
 
+
+
     <Button
         android:id="@+id/button2"
         android:layout_width="125dp"
@@ -74,6 +78,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="28dp"
+        android:background="@drawable/custom_button"
         android:onClick="save"
         android:text="save"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,7 +91,7 @@
         android:layout_width="292dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="36dp"
         android:alpha="0"
         android:ems="10"
@@ -94,7 +99,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.68"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
 
     <TextView
         android:id="@+id/textView"
@@ -135,13 +140,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="508dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/custom_button"
         android:onClick="copy"
         android:text="@android:string/copy"
+        app:layout_constraintBottom_toTopOf="@+id/displayMessage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/displayMessage"
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>
