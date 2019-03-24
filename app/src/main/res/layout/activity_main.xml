@@ -24,9 +24,9 @@
      android:layout_width="171dp"
      android:layout_height="67dp"
      android:layout_marginTop="86dp"
+     android:background="@drawable/custom_button"
      android:onClick="welcome"
      android:text="Welcome!"
-     android:background="@drawable/custom_button"
      app:layout_constraintEnd_toEndOf="parent"
      app:layout_constraintStart_toStartOf="parent"
      app:layout_constraintTop_toBottomOf="@+id/description" />
@@ -47,12 +47,12 @@
      app:layout_constraintEnd_toEndOf="parent"
      app:layout_constraintHorizontal_bias="0.5"
      app:layout_constraintStart_toStartOf="parent"
-     app:layout_constraintTop_toBottomOf="@+id/imageView"
+     app:layout_constraintTop_toBottomOf="@+id/logoImageView"
      tools:textAlignment="center"
      tools:textSize="30dp" />
 
  <ImageView
-     android:id="@+id/imageView"
+     android:id="@+id/logoImageView"
      android:layout_width="247dp"
      android:layout_height="245dp"
      android:layout_marginTop="4dp"
@@ -101,6 +101,33 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/description" />
  </LinearLayout>
+
+ <TextView
+     android:id="@+id/welcomeTextView"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="64dp"
+     android:fontFamily="sans-serif-condensed"
+     android:text="Secret Messaging"
+     android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintHorizontal_bias="0.497"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toBottomOf="@+id/logoImageView" />
+
+
+ <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+     android:id="@+id/adView"
+     android:layout_width="0dp"
+     android:layout_height="82dp"
+     android:layout_alignParentBottom="true"
+     android:layout_centerHorizontal="true"
+     ads:adSize="SMART_BANNER"
+     ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
+     ads:layout_constraintBottom_toBottomOf="parent"
+     ads:layout_constraintEnd_toEndOf="parent"
+     ads:layout_constraintHorizontal_bias="1.0"
+     ads:layout_constraintStart_toStartOf="parent"></com.google.android.gms.ads.AdView>
 
 
 </android.support.constraint.ConstraintLayout>

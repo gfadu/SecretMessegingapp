@@ -9,6 +9,10 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.util.Scanner;
 
 public class Decode extends AppCompatActivity {
@@ -17,12 +21,49 @@ public class Decode extends AppCompatActivity {
     static String password;
     String bin;
     EditText displaymessage;
-
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_decode);
+
+        mAdView=findViewById(R.id.adView);
+        AdRequest adRequest= new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+        mAdView.setAdListener(new AdListener(){
+            @Override
+            public void onAdLoaded() {
+                Log.d("Ad Test","Add Finished Loading");
+            }
+
+            @Override
+            public void onAdFailedToLoad(int i) {
+                Log.d("Ad Test","Add Loading Failed");
+            }
+
+            @Override
+            public void onAdClicked() {
+                Log.d("Ad Test","Add clicked by the User");
+            }
+
+            @Override
+            public void onAdOpened() {
+                Log.d("Ad Test","Add is Visible Now");
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                Log.d("Ad Test","User Left the app");
+            }
+
+            @Override
+            public void onAdClosed() {
+                Log.d("Ad Test","User return back to the app after tapping on ad");
+            }
+        });
+
     }
 
 
@@ -88,7 +129,7 @@ public class Decode extends AppCompatActivity {
             s = s+letter;
         }
         String ops=s.substring(s.length()-password.length());
-        if(ops.equalsIgnoreCase(password))
+        if(ops.equalsIgnoreCase(password) && password.length()!=0)
         {
             int x=s.length()-password.length();
             s=s.substring(0,x);
