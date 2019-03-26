@@ -81,7 +81,21 @@ public class Decode extends AppCompatActivity {
         password=Password.getText().toString();
         Log.i("entered",text);
         Log.i("pass",password);
-        rempunc();
+        if (text.isEmpty())
+        {
+            Log.i("message","field is empty");
+            Toast.makeText(this,"message is empty",Toast.LENGTH_SHORT).show();
+        }
+        else if (password.isEmpty())
+        {
+            Log.i("message","password is empty");
+            Toast.makeText(this,"Password is empty",Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            rempunc();
+        }
+
     }
 
     public void rempunc() {

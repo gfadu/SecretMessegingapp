@@ -94,12 +94,17 @@ public class Encode extends AppCompatActivity {
         inputpassword = (EditText) findViewById(R.id.inputPassword);
         text = message.getText().toString();
         password = inputpassword.getText().toString();
-        Log.i("Entered message",message.getText().toString());
-        Log.i("Entered message",inputpassword.getText().toString());
+        Log.i("Entered message", message.getText().toString());
+        Log.i("Entered message", inputpassword.getText().toString());
         text = text + password;
         Log.i("text:", text);
-        encrypt();
-    }
+        /*if (password.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "Please enter the password!", Toast.LENGTH_SHORT).show();
+        } else if (text.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "Please enter the message!", Toast.LENGTH_SHORT).show();
+        } else {*/
+            encrypt();
+        }
 
 
     public void addpunc() {
@@ -108,7 +113,8 @@ public class Encode extends AppCompatActivity {
             array[i] = bin.charAt(i);
             //System.out.println(array[i]);
         }
-        for (int i = 0; i < bin.length(); i++) {
+        for (int i = 0; i < bin.length(); i++)
+        {
             if (i % 2 == 0) {
                 if (array[i] != ' ') {
                     if (array[i] == '1') {
@@ -150,11 +156,12 @@ public class Encode extends AppCompatActivity {
         inputpassword = (EditText) findViewById(R.id.inputPassword);
         Button copy=(Button) findViewById(R.id.copy);
         copy.setVisibility(View.VISIBLE);
-        if (message.toString().length()==0)
+        if (message.toString().isEmpty())
         {
+            Log.i("message","field is empty");
             Toast.makeText(this,"Enter a message",Toast.LENGTH_SHORT).show();
         }
-        else if (inputpassword.toString().length()==0)
+        else if (inputpassword.toString().isEmpty())
         {
             Toast.makeText(this,"Enter a password",Toast.LENGTH_SHORT).show();
         }
