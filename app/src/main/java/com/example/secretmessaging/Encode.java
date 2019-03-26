@@ -119,11 +119,29 @@ public class Encode extends AppCompatActivity {
                 }
             }
         }
-        String string = new String(array);
+        final String string = new String(array);
         Log.i("encoded", string);
         textView = (EditText) findViewById(R.id.displayMessage);
         textView.setAlpha(1);
         textView.setText(string);
+
+        button = (Button) findViewById(R.id.copy);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                 if(string.isEmpty())
+                 {
+                     Toast.makeText(getApplicationContext(),"Enter a valid message",Toast.LENGTH_SHORT).show();
+                 }
+                 else {
+                    ClipboardManager clipboardManager=(ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clipData=ClipData.newPlainText("data",string);
+                    clipboardManager.setPrimaryClip(clipData);
+                     Toast.makeText(getApplicationContext(), "Text Copied",Toast.LENGTH_SHORT).show();
+                 }
+
+            }
+        });
     }
 
     public void save(View view) {
@@ -149,32 +167,32 @@ public class Encode extends AppCompatActivity {
     }
 
 
-    void copy(View view)
-    {
-        button = (Button) findViewById(R.id.copy);
-        myClipboard = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
-        Toast.makeText(this,"Double tap to copy",Toast.LENGTH_SHORT).show();
-        button.setOnClickListener(new View.OnClickListener() {
-
-
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-
-                try {
-                    String text = textView.getText().toString();
-                    myClip = ClipData.newPlainText("text", text);
-                    myClipboard.setPrimaryClip(myClip);
-                    Toast.makeText(getApplicationContext(), "Text Copied",
-                            Toast.LENGTH_SHORT).show();
-                }
-                catch (Exception e){
-                    Toast.makeText(getApplicationContext(),"Enter a valid message",Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+//    void copy(View view)
+//    {
+//        button = (Button) findViewById(R.id.copy);
+//        myClipboard = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
+//        Toast.makeText(this,"Double tap to copy",Toast.LENGTH_SHORT).show();
+//        button.setOnClickListener(new View.OnClickListener() {
+//
+//
+//            @Override
+//            public void onClick(View v) {
+//                // TODO Auto-generated method stub
+//
+//                try {
+//                    String text = textView.getText().toString();
+//                    myClip = ClipData.newPlainText("text", text);
+//                    myClipboard.setPrimaryClip(myClip);
+//                    Toast.makeText(getApplicationContext(), "Text Copied",
+//                            Toast.LENGTH_SHORT).show();
+//                }
+//                catch (Exception e){
+//                    Toast.makeText(getApplicationContext(),"Enter a valid message",Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
 
     }
-}
+
 
 
